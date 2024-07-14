@@ -1,0 +1,14 @@
+h1 {
+  background-color: yellow;
+  color: red;
+}
+p {
+  background-color: green;
+  color: red;
+  padding: 25px 50px;
+  font-size: 40px;
+}
+img {
+  width: 500px;
+  height: 400px;
+}

@@ -1,16 +1,23 @@
 //////////routing in express
-
+const path = require("path");
 const express = require("express");
 const app = express();
-// console.log(app);
 ///////app.get(route,callback)
+console.log("hello");
 
+//////         way to serve static website
+const publicPath = path.join(__dirname, "../public");
+
+app.use(express.static(publicPath));
 app.get("/", function (req, res) {
-  res.status(200).send("<h1>Hello World to express</h1>");
+  res.status(200).sendFile(path.join(publicPath, "index.html"));
 });
+//////           Way to serve HTML
+
 app.get("/about", function (req, res) {
   res.status(200).send("<h1>Hello World to express from about page</h1>");
 });
+//////          1st Way to serve json
 app.get("/contact", function (req, res) {
   res.json([
     {
@@ -30,6 +37,8 @@ app.get("/contact", function (req, res) {
     },
   ]);
 });
+//////          2nd Way to serve json
+
 app.get("/error", function (req, res) {
   res.status(404).send([
     {
