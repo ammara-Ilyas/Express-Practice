@@ -6,8 +6,49 @@ const app = express();
 ///////app.get(route,callback)
 
 app.get("/", function (req, res) {
-  res.send("Hello World to express");
+  res.status(200).send("<h1>Hello World to express</h1>");
 });
-app.listen(3000, () => {
-  "Listening to port 3000";
+app.get("/about", function (req, res) {
+  res.status(200).send("<h1>Hello World to express from about page</h1>");
+});
+app.get("/contact", function (req, res) {
+  res.json([
+    {
+      name: "Ammara Ilyas",
+      age: 22,
+      school: "PIAIC",
+    },
+    {
+      name: "Ammara Ilyas",
+      age: 22,
+      school: "PIAIC",
+    },
+    {
+      name: "Ammara Ilyas",
+      age: 22,
+      school: "PIAIC",
+    },
+  ]);
+});
+app.get("/error", function (req, res) {
+  res.status(404).send([
+    {
+      name: "Ammara Ilyas",
+      age: 22,
+      school: "PIAIC",
+    },
+    {
+      name: "Ammara Ilyas",
+      age: 22,
+      school: "PIAIC",
+    },
+    {
+      name: "Ammara Ilyas",
+      age: 22,
+      school: "PIAIC",
+    },
+  ]);
+});
+app.listen(8000, () => {
+  console.log("Listening to port 3000");
 });
