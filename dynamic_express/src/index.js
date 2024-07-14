@@ -14,7 +14,15 @@ app.get("/", (req, res) => {
     name: "Maha Nazz",
   });
 });
-
+app.get("/about", (req, res) => {
+  res.send("About page");
+});
+app.get("/about/*", (req, res) => {
+  res.end("<h1>about nested page is not found </h1>");
+});
+app.get("*", (req, res) => {
+  res.end("<h1>404 page</h1>");
+});
 app.listen(8000, () => {
   console.log(`listening on 8000`);
 });
